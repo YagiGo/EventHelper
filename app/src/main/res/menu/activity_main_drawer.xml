@@ -22,7 +22,7 @@
             android:title="画师推特" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Application Settings">
         <menu>
             <item
                 android:id="@+id/nav_setting"
