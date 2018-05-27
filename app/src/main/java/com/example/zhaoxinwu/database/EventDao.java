@@ -26,7 +26,7 @@ public interface EventDao {
     @Query("SELECT COUNT(event) from event_table")
     int countEvents();
 
-    @Query("DELETE * FROM event_table")
+    @Query("DELETE FROM event_table")
     void deleteAll();
 
 

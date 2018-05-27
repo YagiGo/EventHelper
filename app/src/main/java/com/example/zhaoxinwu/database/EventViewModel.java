@@ -15,7 +15,7 @@ public class EventViewModel extends AndroidViewModel{
         mRepo = new EventRepo(application);
         mALlEvents = mRepo.getmAllEvents();
     }
-    LiveData<List<Event>> getAllEvents() {return mALlEvents; }
+    public LiveData<List<Event>> getAllEvents() {return mALlEvents; }
 
     public void insert(Event event) {mRepo.insert(event);}
 

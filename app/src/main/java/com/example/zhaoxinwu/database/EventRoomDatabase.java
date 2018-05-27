@@ -7,6 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 @Database(entities = {Event.class}, version=1)
 public abstract class EventRoomDatabase extends RoomDatabase {
