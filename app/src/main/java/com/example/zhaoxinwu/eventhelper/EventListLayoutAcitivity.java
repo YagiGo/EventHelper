@@ -49,7 +49,7 @@ public class EventListLayoutAcitivity extends BaseActivity {
         }
 
         @Override
-        public int getItemCount() {return 50;} // How many items will it show
+        public int getItemCount() {return 5;} // How many items will it show
 
         class ContentHolder extends RecyclerView.ViewHolder {
             public ContentHolder(View itemView) {

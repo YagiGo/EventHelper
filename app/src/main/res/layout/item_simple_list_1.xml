@@ -20,19 +20,13 @@
             android:layout_height="match_parent"
             android:layout_margin="16dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/civ_avatar"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@mipmap/ic_avatar"/>
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/civ_avatar"
                 android:layout_marginLeft="8dp"
-                android:text="技术鸟：NiaoTech"
+                android:text="コミックマーケット94"
                 android:textColor="#000000"
                 android:textSize="14sp"/>
 

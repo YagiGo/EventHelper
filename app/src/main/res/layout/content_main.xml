@@ -8,6 +8,9 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
+
+
     <TextView
         android:id="@+id/no_info_indicator_1"
         android:layout_width="204dp"
@@ -30,6 +33,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!--
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="351dp"
@@ -44,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/no_info_indicator_1"
         tools:listitem="@layout/recycleview_item" />
+    -->
 
 
     </android.support.constraint.ConstraintLayout>

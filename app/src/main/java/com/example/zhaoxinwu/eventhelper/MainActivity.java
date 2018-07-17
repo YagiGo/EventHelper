@@ -40,16 +40,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.input_add_event);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show(); */
+                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 //       .setAction("Action", null).show();
                 startActivityForResult(new Intent(MainActivity.this, CreateEventActivity.class)
                                         , NEW_EVENT_ACTIVITY_REQUEST_CODE);
-
             }
         });
 
@@ -61,11 +59,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        /*
         final EventListAdapter adapter = new EventListAdapter(this);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         //Get a new or existing ViewModel from the viewModelProvider
         mEventViewModel = ViewModelProviders.of(this).get(EventViewModel.class);
         mEventViewModel.getAllEvents().observe(this, new Observer<List<Event>>() {
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity
                 //Update the cached copy of the words in the adapter.
                 adapter.setEvents(events);
             }
-        });
+        }); */
 
     }
 
@@ -118,7 +117,10 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_shopping_list) {
             // Handle the camera action
+
         } else if (id == R.id.nav_shopping_history) {
+            Intent intent = new Intent(getApplicationContext(), EventListLayoutAcitivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_location_info) {
 
