@@ -116,12 +116,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_shopping_list) {
-            // Handle the camera action
-
-        } else if (id == R.id.nav_shopping_history) {
             Intent intent = new Intent(getApplicationContext(), EventListLayoutAcitivity.class);
             startActivity(intent);
 
+        } else if (id == R.id.nav_shopping_history) {
+            /*
+            Intent intent = new Intent(getApplicationContext(), EventListLayoutAcitivity.class);
+            startActivity(intent);
+            */
         } else if (id == R.id.nav_location_info) {
 
         } else if (id == R.id.nav_eshi_info) {

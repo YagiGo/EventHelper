@@ -22,7 +22,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="例：コミケ94"
+        android:hint="写画师名字"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="〇〇県〇〇市〇〇区〇〇丁目1-1"
+        android:hint="你想买啥"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="活动名称"
+        android:text="画师"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="活动名称" />
+        tools:text="画师" />
 
     <TextView
         android:id="@+id/textView3"
@@ -66,7 +66,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="邮政编码"
+        android:text="数量"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_event_name" />
@@ -76,7 +76,7 @@
         android:layout_width="111dp"
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
-        android:text="详细地址"
+        android:text="物品名"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_zipcode" />
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="建筑名"
+        android:text="摊位地点"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_address" />
@@ -97,7 +97,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="イベントセンター"
+        android:hint="场馆号，摊位号"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="XXX-XXXX"
+        android:hint="写买几个"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
