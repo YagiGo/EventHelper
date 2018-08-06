@@ -63,13 +63,13 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public  ShoppingItem findHander(String eshiName, String itemName) {
+    public  ShoppingItem findHandler(String eshiName, String itemName) {
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ESHINAME +"='" + eshiName +"'"
                 + " AND " + COLUMN_ITEMNAME + "='" + itemName + "'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        ShoppingItem shoppingItem = new ShoppingItem();
+        ShoppingItem shoppingItem = new ShoppingItem("","","", "");
         if(cursor.moveToFirst()) {
             cursor.moveToFirst();
             shoppingItem.setInfo(cursor.getString(0),
@@ -89,7 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "'" + " AND " + COLUMN_ITEMNAME + "= '" + itemName + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        ShoppingItem shoppingItem = new ShoppingItem();
+        ShoppingItem shoppingItem = new ShoppingItem("","","","");
         if(cursor.moveToFirst()) {
             shoppingItem.setInfo(cursor.getString(0),
                     cursor.getString(1), cursor.getString(2), cursor.getString(3));

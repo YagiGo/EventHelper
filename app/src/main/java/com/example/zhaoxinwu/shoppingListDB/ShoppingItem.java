@@ -8,7 +8,6 @@ public class ShoppingItem {
     private String itemName;
 
     //Constructors
-    public ShoppingItem() {}
     public ShoppingItem(String eshiName, String number, String location, String itemName) {
         this.eshiName = eshiName;
         this.number = number;
