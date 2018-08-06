@@ -22,14 +22,14 @@ public class CreateEventActivity extends AppCompatActivity {
     private EditText mEditTextLocation;
     private EditText mEditTextItemName;
 
-    public void addShoppingItem(View view ) {
-        DBHandler dbHandler = new DBHandler(this, null);
+    public void addShoppingItem(DBHandler dbHandler) {
         String eshiName = mEditTextEshiName.getText().toString();
         String number = mEditTextNumber.getText().toString();
         String location = mEditTextLocation.getText().toString();
         String itemName = mEditTextItemName.getText().toString();
         ShoppingItem shoppingItem = new ShoppingItem(eshiName, number, location, itemName);
         dbHandler.addHandler(shoppingItem);
+        Log.d("DBDATA", dbHandler.loadHandler());
         //Reset the GUI
         mEditTextEshiName.setText("");
         mEditTextNumber.setText("");
@@ -46,7 +46,7 @@ public class CreateEventActivity extends AppCompatActivity {
         mEditTextNumber = findViewById(R.id.input_number);
         mEditTextLocation = findViewById(R.id.input_location);
         mEditTextItemName = findViewById(R.id.input_item_name);
-
+        final DBHandler dbHandler = new DBHandler(this, null);
         final Button submitButton = findViewById(R.id.button_submit);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +74,11 @@ public class CreateEventActivity extends AppCompatActivity {
                     replyIntent.putExtra(EXTRA_REPLY, eventArray);
                     setResult(RESULT_OK, replyIntent);
                     */
-                    addShoppingItem(view);
+                    addShoppingItem(dbHandler);
                     Toast toast = Toast.makeText(getApplicationContext(), "保存成功！现在可以继续输入",
                             Toast.LENGTH_SHORT);
                     toast.show();
+
                     // Log.d("DBINFO", "SENDING EventInfo: " + [);
                 }
 

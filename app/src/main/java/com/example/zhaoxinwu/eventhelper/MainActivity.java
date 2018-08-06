@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.zhaoxinwu.database.Event;
 import com.example.zhaoxinwu.database.EventListAdapter;
 import com.example.zhaoxinwu.database.EventViewModel;
+import com.example.zhaoxinwu.shoppingListDB.DBHandler;
 
 import java.util.List;
 

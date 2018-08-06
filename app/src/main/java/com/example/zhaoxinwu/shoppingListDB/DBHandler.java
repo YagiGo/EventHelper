@@ -5,27 +5,36 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBHandler extends SQLiteOpenHelper {
     // Info of the DB
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "shoppingItem.db";
-    private static final String TABLE_NAME = "shoppingItem";
-    private static final String COLUMN_ESHINAME = "EshiName";
-    private static final String COLUMN_NUBER = "Number";
-    private static final String COLUMN_LOCATION = "Location";
-    private static final String COLUMN_ITEMNAME = "ItemName";
+    private static final int DATABASE_VERSION = 3;
+    private static final String DATABASE_NAME = "shoppingItemDB";
+    public static final String TABLE_NAME = "shoppingItem";
+    public static final String COLUMN_ESHINAME = "EshiName";
+    public static final String COLUMN_NUMBER = "Number";
+    public static final String COLUMN_LOCATION = "Location";
+    public static final String COLUMN_ITEMNAME = "ItemName";
 
     //Initialize the DB
     public DBHandler(Context context, SQLiteDatabase.CursorFactory factory)
     {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_STUDENT_TABLE = " CREATE TABLE " + TABLE_NAME + "(" + COLUMN_ESHINAME + "TEXT" +
-                COLUMN_NUBER + "TEXT" + COLUMN_LOCATION + "TEXT" + COLUMN_ITEMNAME + "TEXT" + ")";
-        db.execSQL(CREATE_STUDENT_TABLE);
+        String CREATE_TABLE = " CREATE TABLE " + TABLE_NAME +
+                "(" +
+                COLUMN_ESHINAME + " text, " +
+                COLUMN_NUMBER + " text NOT NULL, " +
+                COLUMN_LOCATION + " text NOT NULL, " +
+                COLUMN_ITEMNAME + " text NOT NULL" +
+                ");";
+        db.execSQL(CREATE_TABLE);
+        Log.d("DATABASECREATED!",  "CREATED DB!");
+
+
     }
 
     @Override
@@ -37,15 +46,21 @@ public class DBHandler extends SQLiteOpenHelper {
     public void addHandler(ShoppingItem shoppingItem) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_ESHINAME, shoppingItem.getInfo()[0]);
-        values.put(COLUMN_NUBER, shoppingItem.getInfo()[1]);
+        values.put(COLUMN_NUMBER, shoppingItem.getInfo()[1]);
+        Log.d("SHOPPING ITEM INFO", shoppingItem.getInfo()[0]);
+        Log.d("SHOPPING ITEM INFO", shoppingItem.getInfo()[1]);
+        Log.d("SHOPPING ITEM INFO", shoppingItem.getInfo()[2]);
+        Log.d("SHOPPING ITEM INFO", shoppingItem.getInfo()[3]);
         values.put(COLUMN_LOCATION, shoppingItem.getInfo()[2]);
         values.put(COLUMN_ITEMNAME, shoppingItem.getInfo()[3]);
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_NAME, null, values);
         db.close();
+        Log.d("FINISHED", "INSERTED");
     }
 
     public String loadHandler() {
+        Log.d("STARTSEARCHINGDB", "SEARCHING");
         String result = "";
         String query = "Select * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -57,6 +72,7 @@ public class DBHandler extends SQLiteOpenHelper {
             String result_3 = cursor.getString(3); //itemName
             result += String.valueOf(result_0) + " " + String.valueOf(result_1) + " " + String.valueOf(result_2) +
                     " " + String.valueOf(result_3) + System.getProperty("line.separator");
+            Log.d("RESULT", result);
         }
         cursor.close();
         db.close();
@@ -107,7 +123,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
         args.put(COLUMN_ESHINAME, eshiName);
-        args.put(COLUMN_NUBER, number);
+        args.put(COLUMN_NUMBER, number);
         args.put(COLUMN_LOCATION, location);
         args.put(COLUMN_ITEMNAME, itemName);
         return db.update(TABLE_NAME, args, COLUMN_ESHINAME + "='" + eshiName + "'" + " AND " +
