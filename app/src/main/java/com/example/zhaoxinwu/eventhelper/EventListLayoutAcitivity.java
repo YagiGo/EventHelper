@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.zhaoxinwu.shoppingListDB.DBHandler;
+
 
 public class EventListLayoutAcitivity extends BaseActivity {
     private SwipeRefreshLayout mRefreshSrl;
@@ -49,7 +51,10 @@ public class EventListLayoutAcitivity extends BaseActivity {
         }
 
         @Override
-        public int getItemCount() {return 5;} // How many items will it show
+        public int getItemCount() {
+            DBHandler dbHandler = new DBHandler(getApplicationContext(), null);
+            return dbHandler.countHandler();
+        } // How many items will it show, by default it will show all the items in the database.
 
         class ContentHolder extends RecyclerView.ViewHolder {
             public ContentHolder(View itemView) {
